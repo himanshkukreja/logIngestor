@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#logoutButton {
+    float: right; /* Aligns the button to the right */
+    margin: 10px; /* Adds some space around the button */
+    background-color: #f44336; /* Red background color for visibility */
+    color: white; /* Text color */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#logoutButton:hover {
+    background-color: #d32f2f; /* Darker shade on hover */
+}
+
+.container {
+    /* display: none; */
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+}
+
+form input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+}
+
+form button {
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #555;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.results-table th, .results-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.results-table th {
+    background-color: #f2f2f2;
+}
+
+.results-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#searchForm input[type="number"] {
+    width: 48%; /* Adjust width to fit on the same line */
+    margin-right: 10px; /* Add some spacing */
+    margin-top: 10px; /* Add some spacing */
+    margin-left: 5px;
+    height: 32px;
+}
+
+/* Style for total records and error message */
+#totalRecords, #errorMessage {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    font-family: monospace;
+}
+
+button {
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #555;
+}
+
+

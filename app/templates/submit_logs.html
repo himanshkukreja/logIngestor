@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Submission Interface</title>
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Log Submission Interface</h1>
+        <form id="logForm">
+            <textarea id="logEntry" name="logEntry" rows="10" cols="50">{
+    "level": "error",
+    "message": "Failed to connect to DB",
+    "resourceId": "server-1234",
+    "timestamp": "{{current_timestamp}}",
+    "traceId": "abc-xyz-123",
+    "spanId": "span-456",
+    "commit": "5e5342f",
+    "metadata": {
+        "parentResourceId": "server-0987"
+    }
+}</textarea>
+            <button type="submit">Submit Log</button>
+        </form>
+        <div id="submissionResult"></div>
+        <button onclick="location.href='/'">Go to Log Query Interface</button>
+    </div>
+    <script>
+        document.getElementById('logForm').onsubmit = async function(event) {
+            event.preventDefault();
+            const logEntry = document.getElementById('logEntry').value;
+            const submissionResultElement = document.getElementById('submissionResult');
+    
+            try {
+                const response = await fetch('/logs', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: logEntry
+                });
+    
+                submissionResultElement.style.display = ''; // Ensure message is visible
+    
+                if (response.ok) {
+                    // Handle successful submission
+                    const result = await response.json();
+                    submissionResultElement.textContent = 'Success: ' + result.status;
+                    submissionResultElement.style.color = 'green';
+                } else {
+                    // Handle API errors
+                    const errorResult = await response.json();
+                    submissionResultElement.textContent = 'Error: ' + errorResult.detail;
+                    submissionResultElement.style.color = 'red';
+                }
+    
+                // Clear the message after 5 seconds
+                setTimeout(() => {
+                    submissionResultElement.textContent = '';
+                    submissionResultElement.style.display = 'none'; // Optionally hide the element
+                }, 2000);
+    
+            } catch (error) {
+                // Handle network errors
+                submissionResultElement.textContent = `Error: ${error.message}`;
+                submissionResultElement.style.color = 'red';
+                submissionResultElement.style.display = '';
+            }
+        };
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Query Interface</title>
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Log Query Interface</h1>
+
+        <button onclick="logout()" id="logoutButton">Logout</button>
+
+        <form id="searchForm">
+            <input type="text" name="level" placeholder="Level">
+            <input type="text" name="message" placeholder="Message">
+            <input type="text" name="resourceId" placeholder="Resource ID">
+            <input type="text" name="start_date" placeholder="Start Date (YYYY-MM-DD)">
+            <input type="text" name="end_date" placeholder="End Date (YYYY-MM-DD)">
+            <input type="text" name="traceId" placeholder="Trace ID">
+            <input type="text" name="spanId" placeholder="Span ID">
+            <input type="text" name="commit" placeholder="Commit">
+            <input type="text" name="parentResourceId" placeholder="Parent Resource ID">
+            <!-- Pagination parameters -->
+            <input type="number" name="page" min="1" placeholder="Page Number">
+            <input type="number" name="size" min="1" placeholder="Page Size">
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Add this button inside the <div class="container"> -->
+        <button onclick="location.href='/submit-logs'">Go to Log Submission Interface</button>
+
+
+        <div id="totalRecords"></div>
+        <div id="errorMessage" style="color: red;"></div>
+        <div id="results">
+            <!-- Search results will be displayed here -->
+        </div>
+    </div>
+    <script>
+        let token; // Define token in a broader scope
+    
+        window.onload = async function() {
+            token = localStorage.getItem('jwt_token'); // Assign the token value here
+            if (!token) {
+                window.location.href = '/login';
+                return;
+            }
+    
+            try {
+                const response = await fetch("/validate-token", {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+    
+                if (response.status === 401) {
+                    window.location.href = '/login';
+                } else if (response.ok) {
+                    document.querySelector('.container').style.display = 'block';
+                } else {
+                    console.error('Error fetching:', response.status);
+                }
+            } catch (error) {
+                console.error('An error occurred:', error);
+            }
+        };
+    
+        document.getElementById('searchForm').onsubmit = async function(event) {
+            event.preventDefault();
+            const resultsElement = document.getElementById('results');
+            const totalRecordsElement = document.getElementById('totalRecords');
+            const errorMessageElement = document.getElementById('errorMessage');
+            resultsElement.innerHTML = '';
+            errorMessageElement.textContent = ''; // Clear previous error message
+    
+            const formData = new FormData(this);
+            const searchParams = new URLSearchParams();
+            
+            for (const [key, value] of formData) {
+                if (value) {
+                    searchParams.append(key, value);
+                }
+            }
+    
+            try {
+                const response = await fetch(`/search-logs?${searchParams.toString()}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}` // Use the global token variable
+                    }
+                });
+    
+                if (!response.ok) {
+                    if (response.status==401){
+                        throw new Error(`User doesn't have required admin permissions`)
+                    }
+                    if (response.status==404){
+                        throw new Error(`No Logs Present`)
+                    }
+                    else{
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                }
+    
+                const data = await response.json();
+    
+                // Check if there are any results
+                if (data.results && data.results.length > 0) {
+                    const table = document.createElement('table');
+                    table.classList.add('results-table');
+    
+                    // Create table header
+                    const thead = document.createElement('thead');
+                    const headerRow = document.createElement('tr');
+                    ['Level', 'Message', 'Resource ID', 'Timestamp', 'Trace ID', 'Span ID', 'Commit', 'Parent Resource ID'].forEach(headerText => {
+                        const headerCell = document.createElement('th');
+                        headerCell.textContent = headerText;
+                        headerRow.appendChild(headerCell);
+                    });
+                    thead.appendChild(headerRow);
+                    table.appendChild(thead);
+    
+                    // Create table body
+                    const tbody = document.createElement('tbody');
+                    data.results.forEach(log => {
+                        const row = document.createElement('tr');
+                        [
+                            log._source.level,
+                            log._source.message,
+                            log._source.resourceId,
+                            log._source.timestamp,
+                            log._source.traceId,
+                            log._source.spanId,
+                            log._source.commit,
+                            log._source.metadata.parentResourceId
+                        ].forEach(text => {
+                            const cell = document.createElement('td');
+                            cell.textContent = text;
+                            row.appendChild(cell);
+                        });
+                        tbody.appendChild(row);
+                    });
+                    table.appendChild(tbody);
+    
+                    resultsElement.appendChild(table);
+    
+                    // Display total number of records
+                    totalRecordsElement.textContent = `Total Records: ${data.total}`;
+                } else {
+                    resultsElement.innerHTML = '<p>No results found.</p>';
+                    totalRecordsElement.textContent = '';
+                }
+            } catch (error) {
+                errorMessageElement.textContent = `Error: ${error.message}`;
+            }
+        };
+    
+        function logout() {
+            localStorage.removeItem('jwt_token');
+            window.location.href = '/login';
+        }
+    </script>
+    
+    
+</body>
+</html>

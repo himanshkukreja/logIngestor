@@ -1,0 +1,51 @@
+[2023-11-19 06:04:31.555] | INFO | main | start_consumer | main.py:38 | Initiating consumer ...
+[2023-11-19 06:04:31.562] | INFO | main | start_consumer | main.py:40 | Consumer started
+[2023-11-19 06:04:35.854] | INFO | main | api_timing_middleware | main.py:48 | API call: /token completed in 0.568303108215332 seconds
+[2023-11-19 06:04:35.883] | INFO | main | api_timing_middleware | main.py:48 | API call: / completed in 0.006049633026123047 seconds
+[2023-11-19 06:04:35.948] | INFO | main | api_timing_middleware | main.py:48 | API call: /static/style.css completed in 0.011179447174072266 seconds
+[2023-11-19 06:04:36.154] | INFO | main | api_timing_middleware | main.py:48 | API call: /validate-token completed in 0.0023031234741210938 seconds
+[2023-11-19 06:04:58.725] | INFO | main | api_timing_middleware | main.py:48 | API call: /submit-logs completed in 0.003314495086669922 seconds
+[2023-11-19 06:05:00.854] | INFO | main | api_timing_middleware | main.py:48 | API call: / completed in 0.004919767379760742 seconds
+[2023-11-19 06:05:00.969] | INFO | main | api_timing_middleware | main.py:48 | API call: /validate-token completed in 0.0028018951416015625 seconds
+[2023-11-19 06:05:02.425] | INFO | main | api_timing_middleware | main.py:48 | API call: /submit-logs completed in 0.0021555423736572266 seconds
+[2023-11-19 06:05:04.233] | INFO | main | api_timing_middleware | main.py:48 | API call: / completed in 0.0030715465545654297 seconds
+[2023-11-19 06:05:04.337] | INFO | main | api_timing_middleware | main.py:48 | API call: /validate-token completed in 0.0015347003936767578 seconds
+[2023-11-19 06:05:07.317] | INFO | main | api_timing_middleware | main.py:48 | API call: /login completed in 0.003052949905395508 seconds
+[2023-11-19 06:06:00.984] | INFO | main | start_consumer | main.py:38 | Initiating consumer ...
+[2023-11-19 06:06:00.985] | INFO | main | start_consumer | main.py:40 | Consumer started
+[2023-11-19 06:06:14.975] | INFO | main | api_timing_middleware | main.py:48 | API call: /signup completed in 0.006024360656738281 seconds
+[2023-11-19 06:06:23.859] | INFO | main | api_timing_middleware | main.py:48 | API call: /register completed in 0.6098580360412598 seconds
+[2023-11-19 06:06:26.135] | INFO | main | api_timing_middleware | main.py:48 | API call: /login completed in 0.004579305648803711 seconds
+[2023-11-19 06:06:32.839] | INFO | main | api_timing_middleware | main.py:48 | API call: /token completed in 0.31783294677734375 seconds
+[2023-11-19 06:06:32.856] | INFO | main | api_timing_middleware | main.py:48 | API call: / completed in 0.0037174224853515625 seconds
+[2023-11-19 06:06:32.963] | INFO | main | api_timing_middleware | main.py:48 | API call: /validate-token completed in 0.0013790130615234375 seconds
+[2023-11-19 06:06:38.616] | INFO | main | api_timing_middleware | main.py:48 | API call: /search-logs completed in 0.03859066963195801 seconds
+[2023-11-19 06:08:53.162] | INFO | main | api_timing_middleware | main.py:48 | API call: / completed in 0.003398418426513672 seconds
+[2023-11-19 06:08:53.225] | INFO | main | api_timing_middleware | main.py:48 | API call: /static/style.css completed in 0.015152931213378906 seconds
+[2023-11-19 06:08:53.286] | INFO | main | api_timing_middleware | main.py:48 | API call: /validate-token completed in 0.002373218536376953 seconds
+[2023-11-19 06:08:56.056] | INFO | main | api_timing_middleware | main.py:48 | API call: /submit-logs completed in 0.006569862365722656 seconds
+[2023-11-19 06:08:59.193] | INFO | main | api_timing_middleware | main.py:48 | API call: / completed in 0.0042650699615478516 seconds
+[2023-11-19 06:08:59.315] | INFO | main | api_timing_middleware | main.py:48 | API call: /validate-token completed in 0.00135040283203125 seconds
+[2023-11-19 06:09:00.581] | INFO | main | api_timing_middleware | main.py:48 | API call: /search-logs completed in 0.04621124267578125 seconds
+[2023-11-19 06:09:30.017] | INFO | main | api_timing_middleware | main.py:48 | API call: /search-logs completed in 0.04424738883972168 seconds
+[2023-11-19 06:09:32.432] | INFO | main | api_timing_middleware | main.py:48 | API call: / completed in 0.013043880462646484 seconds
+[2023-11-19 06:09:32.544] | INFO | main | api_timing_middleware | main.py:48 | API call: /validate-token completed in 0.002052783966064453 seconds
+[2023-11-19 06:09:34.119] | INFO | main | api_timing_middleware | main.py:48 | API call: /search-logs completed in 0.04882669448852539 seconds
+[2023-11-19 06:11:08.764] | INFO | main | api_timing_middleware | main.py:48 | API call: / completed in 0.0076868534088134766 seconds
+[2023-11-19 06:11:08.885] | INFO | main | api_timing_middleware | main.py:48 | API call: /validate-token completed in 0.0017366409301757812 seconds
+[2023-11-19 06:11:11.434] | INFO | main | api_timing_middleware | main.py:48 | API call: /search-logs completed in 0.0405116081237793 seconds
+[2023-11-19 06:11:21.944] | INFO | main | api_timing_middleware | main.py:48 | API call: / completed in 0.014289617538452148 seconds
+[2023-11-19 06:11:22.071] | INFO | main | api_timing_middleware | main.py:48 | API call: /validate-token completed in 0.0021021366119384766 seconds
+[2023-11-19 06:11:24.362] | INFO | main | api_timing_middleware | main.py:48 | API call: /search-logs completed in 0.04481077194213867 seconds
+[2023-11-19 06:11:40.661] | INFO | main | api_timing_middleware | main.py:48 | API call: /search-logs completed in 0.038115739822387695 seconds
+[2023-11-19 06:11:41.425] | INFO | main | api_timing_middleware | main.py:48 | API call: /search-logs completed in 0.04025697708129883 seconds
+[2023-11-19 06:11:41.621] | INFO | main | api_timing_middleware | main.py:48 | API call: /search-logs completed in 0.0379185676574707 seconds
+[2023-11-19 06:11:42.043] | INFO | main | api_timing_middleware | main.py:48 | API call: /search-logs completed in 0.036406517028808594 seconds
+[2023-11-19 06:11:42.253] | INFO | main | api_timing_middleware | main.py:48 | API call: /search-logs completed in 0.04660940170288086 seconds
+[2023-11-19 06:11:42.441] | INFO | main | api_timing_middleware | main.py:48 | API call: /search-logs completed in 0.0378570556640625 seconds
+[2023-11-19 06:11:43.806] | INFO | main | api_timing_middleware | main.py:48 | API call: / completed in 0.007100105285644531 seconds
+[2023-11-19 06:11:43.832] | INFO | main | api_timing_middleware | main.py:48 | API call: /static/style.css completed in 0.0020227432250976562 seconds
+[2023-11-19 06:11:43.904] | INFO | main | api_timing_middleware | main.py:48 | API call: /validate-token completed in 0.002299785614013672 seconds
+[2023-11-19 06:11:45.856] | INFO | main | api_timing_middleware | main.py:48 | API call: /search-logs completed in 0.04535531997680664 seconds
+[2023-11-19 06:11:54.931] | INFO | main | api_timing_middleware | main.py:48 | API call: /login completed in 0.003573894500732422 seconds
+[2023-11-19 06:11:54.988] | INFO | main | api_timing_middleware | main.py:48 | API call: /static/auth.css completed in 0.0030493736267089844 seconds

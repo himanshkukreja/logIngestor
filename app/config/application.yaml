@@ -1,0 +1,20 @@
+elastic_search_host: elasticsearch
+db_name: Ingestor_DB
+logs_collection: logs
+user_collection: users
+jwt_algorithm: HS256
+access_token_expiry_in_minutes: 30
+token_url: token
+
+default_level: error
+default_message: Failed to connect to DB
+default_resourceId: server-1234
+default_traceId: abc-xyz-123
+default_spanId: span-456
+default_commit: 5e5342f
+default_parentResourceId: server-0987
+
+rabbitMQ_host: rabbitmq
+rabbitMQ_username: guest
+
+
